@@ -16,7 +16,7 @@ describe "New author page", type: :feature do
     visit new_author_path
     expect(page).to have_css('input[type="submit"]')
   end
-  it "should save a newly created user to the database" do
+  it "should save a newly created author to the database" do
     visit new_author_path
     page.fill_in 'author[first_name]', with: 'Alan'
     page.fill_in 'author[last_name]', with: 'Turing'
