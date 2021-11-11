@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe "Author", type: :model do
     it "should have text inputs for an author's first name, last name, and homepage" do
       author = Author.new(first_name: "Alan", last_name: "Turing", homepage: "https://en.wikipedia.org/wiki/Alan_Turing")
