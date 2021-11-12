@@ -5,12 +5,20 @@ describe "Author index page", type: :feature do
         # https://guides.rubyonrails.org/routing.html#path-and-url-helpers
         visit authors_path
     end
-    it "should display all saved authors" do
+    it "should display all saved authors names and homepages" do
+        @author = FactoryBot.create :author
         visit authors_path
-        Author.all do |author|
-            expect(page).to have_css('td', text: author.name)
-            expect(page).to have_css('td', text: author.homepage)
-        end
+        expect(page).to have_css('td', text: @author.name)
+        expect(page).to have_css('td', text: @author.homepage)
+    end
+    it "should have links to each authors edit and show page" do
+        @author = FactoryBot.create :author
+        visit authors_path
+        expect(page).to have_link 'Show', href: author_path(@author)
+        expect(page).to have_link 'Edit', href: edit_author_path(@author)
+    end
+    it "should have a link to the new author page" do
+        visit authors_path
         expect(page).to have_link 'New', href: new_author_path
     end
 end
