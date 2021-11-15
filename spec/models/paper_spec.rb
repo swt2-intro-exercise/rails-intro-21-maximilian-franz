@@ -22,4 +22,8 @@ RSpec.describe Paper, type: :model do
     expect(paper).not_to be_valid
     expect(paper2).not_to be_valid
   end
+  it "should have an empty list of authors" do
+    paper = Paper.new(title: "Test Title", venue: "Test Venue", year: 2021)
+    expect(paper).to have_attributes(:authors => [])
+  end
 end
