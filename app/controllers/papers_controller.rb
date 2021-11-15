@@ -8,6 +8,7 @@ class PapersController < ApplicationController
 
   # GET /papers/1
   def show
+    set_paper
   end
 
   # GET /papers/new
